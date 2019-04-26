@@ -41,8 +41,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       end
 
       # run provisioning scripts
-      config.vm.provision :shell, :path => "pre-provision.sh"
-      config.vm.provision :shell, :path => "install_puppet_enterprise.sh"
+      config.vm.provision :shell, :path => node_values[':bootstrap']
     end
   end
 end

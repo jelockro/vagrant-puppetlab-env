@@ -1,17 +1,16 @@
 systemctl disable firewalld
 setenforce 0
 
-if ps aux | grep "puppet master" | grep -v grep 2> /dev/null
+if ps aux | grep "puppet master" > /dev/null
 then
     echo "Puppet Master is already installed. Exiting..."
 else
-
     # Configure /etc/hosts file
     echo "" | sudo tee --append /etc/hosts 2> /dev/null && \
     echo "# Host config for Puppet Master and Agent Nodes" | sudo tee --append /etc/hosts 2> /dev/null && \
     echo "192.168.32.5    puppetmaster.debug.vlan  puppet" | sudo tee --append /etc/hosts 2> /dev/null && \
-    echo "192.168.32.10   node01.debug.lan  node01" | sudo tee --append /etc/hosts 2> /dev/null && \
-    echo "192.168.32.20   node02.debug.lan node02" | sudo tee --append /etc/hosts 2> /dev/null
+    echo "192.168.32.10   node01.debug.vlan  node01" | sudo tee --append /etc/hosts 2> /dev/null && \
+    echo "192.168.32.20   node02.debug.vlan node02" | sudo tee --append /etc/hosts 2> /dev/null
     
     # Install Puppet Master
     cd /provision_data
@@ -26,11 +25,11 @@ else
     mv /provision_data/id-control_repo.rsa /etc/puppetlabs/puppetserver/ssh/id-control_repo.rsa
     
     # Run Puppet Agent twice 
-    echo "\n\nRunning Puppet Agent for first time...fingers crossed."
+    echo -e "\n\nRunning Puppet Agent for first time...fingers crossed."
     hash -r
     /opt/puppetlabs/bin/puppet agent -t
     /opt/puppetlabs/bin/puppet agent -t
-
+fi
    # echo "\n\nTesting Puppet's Access to BitBucket Repository"
 # /opt/puppetlabs/bin/puppet-access login admin password netsmart --lifetime 10y
 # /opt/puppetlabs/bin/puppet-code deploy --dry-run
