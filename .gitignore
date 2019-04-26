@@ -1,0 +1,4 @@
+.vagrant/
+/provision_data/id-control_repo.rsa
+/provision_data/puppet-enterprise-2018.1.0-el-7-x86_64.tar.gz
+/provision_data/pe.conf
