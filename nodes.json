@@ -3,18 +3,56 @@
       "puppetmaster.debug.vlan": {
         ":box": "centos/7",
         ":ip": "192.168.32.5",
-        "ports": [],
+        "ports": [
+            {
+                ":host": 8140,
+                ":guest": 8140,
+                ":id": "port-1"
+              },
+              {
+                ":host": 443,
+                ":guest": 443,
+                ":id": "pe-console"
+              },
+              {
+                ":host": 4433,
+                ":guest": 4433,
+                ":id": "pe-classifier"
+              },
+              {
+                ":host": 8081,
+                ":guest": 8081,
+                ":id": "pe-puppetDB"
+              },
+              {
+                ":host": 8142,
+                ":guest": 8142,
+                ":id": "pe-orchestrator"
+              },
+              {
+                ":host": 3000,
+                ":guest": 3000,
+                ":id": "port-2"
+              },
+              {
+                ":host": 8081,
+                ":guest": 8081,
+                ":id": "port-3"
+              },
+        ],
         ":memory": 1024,
         ":bootstrap": "bootstrap-master.sh"
 
       },
-      "node01.example.com": {
+      "node01.debug.lan": {
+        ":box": "centos/7",
         ":ip": "192.168.32.10",
         "ports": [],
         ":memory": 1024,
         ":bootstrap": "bootstrap-node.sh"
       },
-      "node02.example.com": {
+      "node02.debug.lan": {
+        ":box": "kensykora/windows_2012_r2",
         ":ip": "192.168.32.20",
         "ports": [],
         ":memory": 1024,
