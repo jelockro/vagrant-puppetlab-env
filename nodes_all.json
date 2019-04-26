@@ -5,39 +5,34 @@
         ":ip": "192.168.32.5",
         "ports": [
             {
-                ":host": 8140,
+                ":host":  8140,
                 ":guest": 8140,
-                ":id": "port-1"
+                ":id":    "port-1"
               },
               {
-                ":host": 443,
+                ":host":  443,
                 ":guest": 443,
-                ":id": "pe-console"
+                ":id":    "pe-console"
               },
               {
-                ":host": 4433,
+                ":host":  4433,
                 ":guest": 4433,
-                ":id": "pe-classifier"
+                ":id":    "pe-classifier"
               },
               {
-                ":host": 8081,
+                ":host":  8081,
                 ":guest": 8081,
-                ":id": "pe-puppetDB"
+                ":id":    "pe-puppetDB"
               },
               {
-                ":host": 8142,
+                ":host":  8142,
                 ":guest": 8142,
-                ":id": "pe-orchestrator"
+                ":id":    "pe-orchestrator"
               },
               {
-                ":host": 3000,
+                ":host":  3000,
                 ":guest": 3000,
-                ":id": "port-2"
-              },
-              {
-                ":host": 8081,
-                ":guest": 8081,
-                ":id": "port-3"
+                ":id":    "port-2"
               }
         ],
         ":memory": 4096,
