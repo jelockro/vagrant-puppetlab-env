@@ -1,6 +1,6 @@
 Vagrant.require_version ">= 1.5.0"
 require 'vagrant-hosts'
-require 'vagrant-auto_network'
+#require 'vagrant-auto_network'
 
 Vagrant.configure("2") do |config|
   config.vm.provider "virtualbox" do |v|
