@@ -37,13 +37,6 @@
         ],
         ":memory": 4096,
         ":bootstrap": "bootstrap-master.sh"
-    },
-    "node01.debug.lan": {
-        ":box": "centos/7",
-        ":ip": "192.168.32.10",
-        "ports": [],
-        ":memory": 1024,
-        ":bootstrap": "bootstrap-node.sh"
     }
   }
 }

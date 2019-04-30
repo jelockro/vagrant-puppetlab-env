@@ -2,7 +2,7 @@
 
 # Run on VM to bootstrap Puppet Agent nodes
 
-if ps aux | grep "puppet agent" > /dev/null
+if ps aux | grep -q "puppet agent" | grep -v grep
 then
     echo "Puppet Agent is already installed. Moving on..."
 else

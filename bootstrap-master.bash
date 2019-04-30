@@ -1,7 +1,8 @@
+#!/bin/bash
 systemctl disable firewalld
 setenforce 0
 
-if ps aux | grep "puppet master" > /dev/null
+if ps aux | grep -q "puppet master" | grep -v grep
 then
     echo "Puppet Master is already installed. Exiting..."
 else
@@ -27,8 +28,11 @@ else
     # Run Puppet Agent twice 
     echo -e "\n\nRunning Puppet Agent for first time...fingers crossed."
     hash -r
-    /opt/puppetlabs/bin/puppet agent -t
-    /opt/puppetlabs/bin/puppet agent -t
+    
+    
+
+#    /opt/puppetlabs/bin/puppet agent -t
+#    /opt/puppetlabs/bin/puppet agent -t
 fi
    # echo "\n\nTesting Puppet's Access to BitBucket Repository"
 # /opt/puppetlabs/bin/puppet-access login admin password netsmart --lifetime 10y

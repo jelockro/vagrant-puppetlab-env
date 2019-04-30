@@ -41,7 +41,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       end
 
       # run provisioning scripts
-      config.vm.provision :shell, :path => node_values[':bootstrap']
+      config.vm.provision :bash, :path => node_values[':bootstrap']
+      config.vm.provision :bash, :path =>
     end
   end
 end
